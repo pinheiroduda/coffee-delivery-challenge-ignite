@@ -12,7 +12,7 @@ export const NavBar = styled.div`
   align-items: center;
   justify-content: space-between;
 
-  gap: 1.25rem;
+  gap: 0.75rem;
 
   >div {
     display: flex;
@@ -24,7 +24,7 @@ export const NavBar = styled.div`
     
     gap: 4px;
     
-    color: ${props => props.theme['purple-400']};
+    color: ${props => props.theme['purple-800']};
     
     >p {
       line-height: 1.1375;
@@ -33,4 +33,12 @@ export const NavBar = styled.div`
       font-weight: 400;
     }
   }
+`
+
+export const ShoppingButton = styled.button`
+  width: 2.375rem;
+  height: 2.375rem;
+  background: ${props => props.theme['yellow-100']};
+  border: none;
+  border-radius: 6px;
 `
