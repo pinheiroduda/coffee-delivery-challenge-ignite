@@ -1,3 +1,4 @@
+import styled from 'styled-components';
 import { createGlobalStyle } from 'styled-components'
 
 export const GlobalStyle = createGlobalStyle`
@@ -6,5 +7,10 @@ export const GlobalStyle = createGlobalStyle`
     padding: 0;
     box-sizing: border-box;
   }
+`
 
+export const AppContainer = styled.div`
+  width: 100%;
+  max-width: 1120px;
+  margin: auto;
 `
