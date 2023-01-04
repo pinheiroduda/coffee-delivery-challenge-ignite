@@ -1,4 +1,4 @@
-import { Cover } from "../../components/Cover";
+import { Cover } from "../../views/Cover";
 import { Header } from "../../components/Header";
 import { ProductCard } from "../../components/ProductCard";
 
