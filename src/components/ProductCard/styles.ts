@@ -4,6 +4,7 @@ export const Card = styled.div`
   position: absolute;
   width: 256px;
   height: 310px;
+  margin: 3.375rem 0 2.5rem 0;
   padding: 0 1.25rem;
   border-radius: 6px 36px;
   display: flex;

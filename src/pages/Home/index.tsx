@@ -1,13 +1,13 @@
 import { Cover } from "../../views/Cover";
 import { Header } from "../../components/Header";
-import { ProductCard } from "../../components/ProductCard";
+import { Products } from "../../views/Products";
 
 export function Home() {
   return (
     <>
       <Header />
       <Cover />
-      <ProductCard />
+      <Products />
     </>
   )
 }
