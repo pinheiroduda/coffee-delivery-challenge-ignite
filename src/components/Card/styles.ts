@@ -1,12 +1,12 @@
 import styled from "styled-components";
 
-export const Card = styled.div`
-  position: absolute;
+export const CardContainer = styled.div`
   width: 256px;
   height: 310px;
   margin: 3.375rem 0 2.5rem 0;
   padding: 0 1.25rem;
   border-radius: 6px 36px;
+
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -19,10 +19,17 @@ export const Card = styled.div`
     width: 120px;
     height: 120px;
   }
+
+  >div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;   
+  }
 `
 
 export const CoffeeType = styled.p`
-  width: 81px;
+  width: auto;
   height: 21px;
   padding: 4px 8px;
   border-radius: 100px;
@@ -54,7 +61,6 @@ export const CoffeeDescription = styled.h2`
   font-family: 'Roboto', sans-serif;
   font-size: 0.875rem;
   font-weight: 400;
-  // line-height: 26px;
   text-align: center;
 
   color: ${props => props.theme['gray-600']};
@@ -68,6 +74,9 @@ export const PriceContainer = styled.div`
 
 export const CoffeePrice = styled.p`
   margin-top: 1px;
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
 
   font-family: 'Regular', sans-serif;
   font-size: 0.875rem;
