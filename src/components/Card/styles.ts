@@ -1,12 +1,12 @@
 import styled from "styled-components";
 
-export const Card = styled.div`
-  position: absolute;
+export const CardContainer = styled.div`
   width: 256px;
   height: 310px;
   margin: 3.375rem 0 2.5rem 0;
   padding: 0 1.25rem;
   border-radius: 6px 36px;
+
   display: flex;
   flex-direction: column;
   align-items: center;

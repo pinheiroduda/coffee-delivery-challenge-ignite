@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
-export const ProductsContainer = styled.div`
-  padding: 2rem 0 7.3125rem 0;
+export const ProductsContainer = styled.section`
+  padding-top: 2rem;
 
   >h1 {
     font-family: 'Baloo 2', sans-serif;
@@ -11,5 +11,10 @@ export const ProductsContainer = styled.div`
     text-align: left;
 
     color: ${props => props.theme['gray-800']}
+  }
+
+  >div {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
   }
 `
