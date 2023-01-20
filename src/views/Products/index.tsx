@@ -1,5 +1,5 @@
 import { Card } from "../../components/Card";
-import { coffeeCardsList } from "../../services/mockData";
+import { coffeeCardsList } from "../../services/coffeeCardData";
 import { ProductsContainer } from "./styles";
 
 export function Products() {
@@ -12,7 +12,7 @@ export function Products() {
           return (
             <Card
               image={coffeeCard.image}
-              type={coffeeCard.type.map(coffeeType => coffeeType.split(','))}
+              type={coffeeCard.type}
               name={coffeeCard.name}
               description={coffeeCard.description}
             />
