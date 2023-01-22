@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const CoverContainer = styled.div`
+  height: 544px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -27,10 +28,28 @@ export const TextSection = styled.section`
   }
 `
 
-export const ListItems = styled.ul`
+export const FeaturesList = styled.ul`
+  margin-top: 4.125rem;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  list-style: none;
 
-  margin-top: 4.125rem;
+  list-style: none;
+`
+
+export const Feature = styled.li`
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  >span:first-child {
+    padding: 8px 8px 4px;
+    border-radius: 100%;
+  }
+
+  >span:last-child {
+    font-family: 'Roboto', sans-serif;
+    color: #574F4D;
+  }
+  
+  margin-bottom: 20px;
 `

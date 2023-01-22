@@ -1,5 +1,6 @@
 import PageCover from '../../assets/PageCover.svg'
-import { CoverContainer, ListItems, TextSection } from './styles'
+import { coverList } from '../../services/coverListData'
+import { CoverContainer, FeaturesList, Feature, TextSection } from './styles'
 
 export function Cover() {
   return (
@@ -7,12 +8,16 @@ export function Cover() {
       <TextSection>
         <h1>Encontre o café perfeito para qualquer hora do dia</h1>
         <p>Com o Coffee Delivery você recebe seu café onde estiver, a qualquer hora</p>
-        <ListItems>
-          <li>Compra simples e segura</li>
-          <li>Embalagem mantém o café intacto</li>
-          <li>Entrega rápida e rastreada</li>
-          <li>O café chega fresquinho até você</li>
-        </ListItems>
+        <FeaturesList>
+          {coverList.map(feature => 
+            <Feature>
+              <span style={{backgroundColor: feature.backgroundColor}}>
+                <feature.icon size={16} weight="fill" color="#FFF"/>
+              </span>
+              <span>{feature.text}</span>
+            </Feature>
+          )}
+        </FeaturesList>
       </TextSection>
       <img src={PageCover} alt="" />
     </CoverContainer>
