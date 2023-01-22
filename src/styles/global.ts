@@ -8,9 +8,9 @@ export const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
   }
 
-  p, a, input, button {
-    font-family: 'Roboto', sans-serif;
+  p, a, input, button, li, span {
     font-size: 1rem;
+    font-weight: 400;
   }
 `
 
