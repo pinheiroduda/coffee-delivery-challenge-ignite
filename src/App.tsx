@@ -1,5 +1,6 @@
 import { ThemeProvider } from "styled-components"
-import { Home } from "./pages/Home"
+import { Header } from "./components/Header"
+import { Router } from "./Router"
 import { AppContainer, GlobalStyle } from "./styles/global"
 import { defaultTheme } from "./styles/themes/default"
 
@@ -8,8 +9,8 @@ function App() {
     <ThemeProvider theme={defaultTheme}>
       <GlobalStyle />
       <AppContainer>
-        <Home />
-        
+        <Header />
+        <Router />
       </AppContainer>
     </ThemeProvider>
   )

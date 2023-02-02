@@ -5,7 +5,6 @@ import { Products } from "../../views/Products";
 export function Home() {
   return (
     <>
-      <Header />
       <Cover />
       <Products />
     </>

@@ -35,10 +35,11 @@ export const NavBar = styled.div`
   }
 `
 
-export const ShoppingButton = styled.button`
+export const ShoppingButton = styled.a`
   width: 2.375rem;
   height: 2.375rem;
   background: ${props => props.theme['yellow-100']};
   border: none;
   border-radius: 6px;
+  padding: 8px;
 `
