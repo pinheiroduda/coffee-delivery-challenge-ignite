@@ -95,9 +95,10 @@ export const CoffeePrice = styled.p`
   }
 `
 
-export const ShoppingButton = styled.button`
+export const ShoppingButton = styled.a`
   width: 2.375rem;
   height: 2.375rem;
+  padding: 8px;
   background: ${props => props.theme['purple-800']};
   border: none;
   border-radius: 6px;

@@ -19,7 +19,7 @@ export function Card({ image, type, name, description }: any) {
         <PriceContainer>
           <CoffeePrice>R$<span>9,90</span></CoffeePrice>
           <CounterButton />
-          <ShoppingButton>
+          <ShoppingButton href='/order'>
             <ShoppingCart size={22} weight="fill" color={theme['white']}/>
           </ShoppingButton>
         </PriceContainer>
