@@ -9,6 +9,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   p, a, input, button, li, span {
+    font-family: 'Roboto', sans-serif;
     font-size: 1rem;
     font-weight: 400;
   }
