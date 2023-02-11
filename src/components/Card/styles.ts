@@ -95,18 +95,6 @@ export const CoffeePrice = styled.p`
   }
 `
 
-export const CoffeeCounter = styled.div`
-  width: 72px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin: 0 8px 0 23px;
-  padding: 8px;
-  border-radius: 6px;
-
-  background: ${props => props.theme['gray-400']};
-`
-
 export const ShoppingButton = styled.button`
   width: 2.375rem;
   height: 2.375rem;

@@ -1,6 +1,7 @@
-import { Minus, Plus, ShoppingCart } from 'phosphor-react'
+import { ShoppingCart } from 'phosphor-react'
 import { useTheme } from 'styled-components'
-import { CardContainer, CoffeeCounter, CoffeeDescription, CoffeeName, CoffeePrice, CoffeeType, PriceContainer, ShoppingButton } from './styles'
+import { CounterButton } from '../CounterButton'
+import { CardContainer, CoffeeDescription, CoffeeName, CoffeePrice, CoffeeType, PriceContainer, ShoppingButton } from './styles'
 
 export function Card({ image, type, name, description }: any) {
   const theme = useTheme()
@@ -17,11 +18,7 @@ export function Card({ image, type, name, description }: any) {
         <CoffeeDescription>{description}</CoffeeDescription>
         <PriceContainer>
           <CoffeePrice>R$<span>9,90</span></CoffeePrice>
-          <CoffeeCounter>
-            <Minus size={14} weight="duotone" color={theme['purple-400']}/>
-            <p>1</p>
-            <Plus size={14} weight="duotone" color={theme['purple-400']}/>
-          </CoffeeCounter>
+          <CounterButton />
           <ShoppingButton>
             <ShoppingCart size={22} weight="fill" color={theme['white']}/>
           </ShoppingButton>
