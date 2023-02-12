@@ -6,6 +6,7 @@ import {
   Money,
   Trash
 } from "phosphor-react";
+import { useNavigate } from "react-router-dom";
 import { useTheme } from "styled-components";
 import { CounterButton } from "../../components/CounterButton";
 
@@ -29,6 +30,11 @@ import {
 
 export function Order() {
   const theme = useTheme()
+  const navigate = useNavigate()
+
+  const handleRedirectFinishedBuying = () => {
+    navigate('/confirmed-order')
+  }
 
   return (
     <OrderContainer>
@@ -111,7 +117,9 @@ export function Order() {
             <p>Total</p>
             <p>R$</p>
           </TotalDetails>
-          <ConfirmOrderButton>Confirmar pedido</ConfirmOrderButton>
+          <ConfirmOrderButton onClick={handleRedirectFinishedBuying}>
+            Confirmar pedido
+          </ConfirmOrderButton>
         </ReviewSection>
       </section>
     </OrderContainer>
