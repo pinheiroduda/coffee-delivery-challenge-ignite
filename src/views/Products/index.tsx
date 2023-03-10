@@ -1,9 +1,8 @@
-import { Card } from "../../components/Card";
-import { coffeeCardsList } from "../../services/coffeeCardData";
-import { ProductsContainer } from "./styles";
+import { Card } from '../../components/Card'
+import { coffeeCardsList } from '../../services/coffeeCardData'
+import { ProductsContainer } from './styles'
 
 export function Products() {
-
   return (
     <ProductsContainer>
       <h1>Nossos cafés</h1>
@@ -11,6 +10,7 @@ export function Products() {
         {coffeeCardsList.map(coffeeCard => {
           return (
             <Card
+              key={coffeeCard.name}
               image={coffeeCard.image}
               type={coffeeCard.type}
               name={coffeeCard.name}

@@ -95,7 +95,7 @@ export const CoffeePrice = styled.p`
   }
 `
 
-export const ShoppingButton = styled.a`
+export const ShoppingButton = styled.button`
   width: 2.375rem;
   height: 2.375rem;
   padding: 8px;
