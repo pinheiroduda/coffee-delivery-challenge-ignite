@@ -42,4 +42,21 @@ export const ShoppingButton = styled.a`
   border: none;
   border-radius: 6px;
   padding: 8px;
+  position: relative;
+
+  span {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    width: 20px;
+    height: 20px;
+    background: ${props => props.theme['yellow-800']};
+    border-radius: 100%;
+    padding-top: 2px;
+    
+    text-align: center;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: ${props => props.theme['white']}
+  }
 `
