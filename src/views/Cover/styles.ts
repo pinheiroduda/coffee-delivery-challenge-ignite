@@ -6,7 +6,6 @@ export const CoverContainer = styled.div`
   align-items: center;
   justify-content: center;
   gap: 3.5rem;
-  // flex-wrap: wrap;
 `
 
 export const TextSection = styled.section`
