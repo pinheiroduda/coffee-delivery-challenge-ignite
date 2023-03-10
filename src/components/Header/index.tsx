@@ -24,7 +24,7 @@ export function Header() {
           <p>Porto Alegre, RS</p>
         </div>
         <ShoppingButton href="/order">
-          <span>{coffeeAmountSum ? coffeeAmountSum : ''}</span>
+          {coffeeAmountSum ? <span> {coffeeAmountSum} </span> : null}
           <ShoppingCart size={22} weight="fill" color={theme['yellow-800']} />
         </ShoppingButton>
       </NavBar>
