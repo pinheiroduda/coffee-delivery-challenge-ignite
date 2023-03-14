@@ -6,10 +6,11 @@ import {
   Money,
   Trash
 } from 'phosphor-react'
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useTheme } from 'styled-components'
 import { CounterButton } from '../../components/CounterButton'
+import { CartContext } from '../../context/CartContext'
 
 import {
   Address,
@@ -31,12 +32,15 @@ import {
 
 export function Order() {
   const [counter, setCounter] = useState(1)
+  const { selectedCoffees } = useContext(CartContext)
   const theme = useTheme()
   const navigate = useNavigate()
 
   const handleRedirectFinishedBuying = () => {
     navigate('/confirmed-order')
   }
+
+  console.log(selectedCoffees)
 
   return (
     <OrderContainer>
@@ -110,23 +114,28 @@ export function Order() {
         <TitleBox>Cafés selecionados</TitleBox>
         <ReviewSection>
           <ItemsDetails>
-            <Item>
-              <p>aqui vai a imagem</p>
-              <div>
-                <p>Nome do café</p>
-                <ButtonsBox>
-                  <CounterButton
-                    counter={counter}
-                    onCounterChange={setCounter}
-                  />
-                  <button>
-                    <Trash width={16} color={theme['purple-400']} />
-                    <p>Remover</p>
-                  </button>
-                </ButtonsBox>
-              </div>
-            </Item>
-            <p>total</p>
+            {selectedCoffees &&
+              selectedCoffees.map(selectedCoffee => {
+                return (
+                  <Item>
+                    <p>{selectedCoffee[1]}</p>
+                    <div>
+                      <p>{selectedCoffee[0]}</p>
+                      <ButtonsBox>
+                        <CounterButton
+                          counter={counter}
+                          onCounterChange={setCounter}
+                        />
+                        <button>
+                          <Trash width={16} color={theme['purple-400']} />
+                          <p>Remover</p>
+                        </button>
+                      </ButtonsBox>
+                    </div>
+                    <p>total</p>
+                  </Item>
+                )
+              })}
           </ItemsDetails>
           <ItemsPriceDetails>
             <p>Total de itens</p>
