@@ -9,10 +9,6 @@ export function Header() {
   const { coffeeAmountSum } = useContext(CartContext)
   const theme = useTheme()
 
-  const handleFinishShopping = () => {
-    //redirect to finish shopping screen
-  }
-
   return (
     <HeaderContainer>
       <a href="/">
