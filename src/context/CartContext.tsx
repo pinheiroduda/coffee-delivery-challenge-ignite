@@ -4,6 +4,7 @@ interface CartContextProps {
   cart: Cart[]
   addCoffeeToCart: ({ id, quantity }: Cart) => void
   coffeeAmountSum: number
+  selectedCoffees: any[]
 }
 
 interface CartContextProviderProps {
@@ -12,6 +13,7 @@ interface CartContextProviderProps {
 
 interface Cart {
   id: string
+  img: string
   quantity: number
 }
 
@@ -26,9 +28,15 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
     initialValue
   )
 
-  const addCoffeeToCart = ({ id, quantity }: Cart) => {
+  const selectedCoffees = cart.map(c => Object.values(c))
+  const a = Object.values(cart)
+  console.log(selectedCoffees)
+  console.log(a)
+
+  const addCoffeeToCart = ({ id, img, quantity }: Cart) => {
     const coffeeAmount: Cart = {
       id,
+      img,
       quantity
     }
 
@@ -36,7 +44,9 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
   }
 
   return (
-    <CartContext.Provider value={{ cart, addCoffeeToCart, coffeeAmountSum }}>
+    <CartContext.Provider
+      value={{ cart, addCoffeeToCart, coffeeAmountSum, selectedCoffees }}
+    >
       {children}
     </CartContext.Provider>
   )
