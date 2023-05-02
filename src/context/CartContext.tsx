@@ -1,4 +1,4 @@
-import { createContext, ReactNode, useState } from 'react'
+import { createContext, ReactNode, useEffect, useState } from 'react'
 
 interface CartContextProps {
   cart: Cart[]
@@ -20,7 +20,11 @@ interface Cart {
 export const CartContext = createContext({} as CartContextProps)
 
 export function CartContextProvider({ children }: CartContextProviderProps) {
-  const [cart, setCart] = useState<Cart[]>([])
+  const [cart, setCart] = useState<Cart[]>(() => {
+    const storedCoffees = localStorage.getItem('@coffee-delivery:cart-1.0.0')
+    if (storedCoffees) return JSON.parse(storedCoffees)
+    return []
+  })
 
   const initialValue = 0
   const coffeeAmountSum = Object.values(cart).reduce(
@@ -29,9 +33,12 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
   )
 
   const selectedCoffees = cart.map(c => Object.values(c))
-  const a = Object.values(cart)
-  console.log(selectedCoffees)
-  console.log(a)
+
+  useEffect(() => {
+    const stateJSON = JSON.stringify(cart)
+
+    localStorage.setItem('@coffee-delivery:cart-1.0.0', stateJSON)
+  }, [cart])
 
   const addCoffeeToCart = ({ id, img, quantity }: Cart) => {
     const coffeeAmount: Cart = {
