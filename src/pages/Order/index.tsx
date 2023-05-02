@@ -118,7 +118,7 @@ export function Order() {
               selectedCoffees.map(selectedCoffee => {
                 return (
                   <Item>
-                    <p>{selectedCoffee[1]}</p>
+                    <img src={selectedCoffee[1]} alt={selectedCoffee[0]} />
                     <div>
                       <p>{selectedCoffee[0]}</p>
                       <ButtonsBox>
@@ -132,7 +132,7 @@ export function Order() {
                         </button>
                       </ButtonsBox>
                     </div>
-                    <p>total</p>
+                    <p>R${9.9 * selectedCoffee[2]}</p>
                   </Item>
                 )
               })}

@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const OrderContainer = styled.div`
+  margin-bottom: 40px;
   display: flex;
   gap: 32px;
 `
@@ -115,18 +116,18 @@ export const PaymentOptionsButton = styled.button`
 `
 
 export const ReviewSection = styled.div`
+  width: 28rem;
   margin-top: 15px;
   padding: 40px;
-  border-radius: 6px 6px 6px 44px;
+  border-radius: 6px 44px;
   background-color: ${props => props.theme['gray-200']};
 `
 
 export const ItemsDetails =styled.div`
   display: flex;
+  flex-direction: column;
   gap: 50px;
   margin-bottom: 24px;
-  padding-bottom: 24px;
-  border-bottom: 1px solid ${props => props.theme['gray-400']};
 
   >p {
     font-weight: 700;
@@ -140,6 +141,8 @@ export const Item = styled.div`
   align-items: center;
   justify-content: space-between;
   gap: 20px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid ${props => props.theme['gray-400']};
 
   >div {
     display: grid;
