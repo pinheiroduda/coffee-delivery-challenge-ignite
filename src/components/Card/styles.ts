@@ -102,4 +102,9 @@ export const ShoppingButton = styled.button`
   background: ${props => props.theme['purple-800']};
   border: none;
   border-radius: 6px;
+
+  :hover {
+    background: ${props => props.theme['purple-400']};
+    transition: 0.2s;
+  }
 `

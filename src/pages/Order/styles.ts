@@ -113,6 +113,11 @@ export const PaymentOptionsButton = styled.button`
 
   font-size: 0.75rem;
   text-transform: uppercase;
+
+  :hover {
+      background: ${props => props.theme['gray-500']};
+      transition: 0.2s;
+    }
 `
 
 export const ReviewSection = styled.div`
@@ -164,6 +169,11 @@ export const ButtonsBox = styled.div`
 
     background: ${props => props.theme['gray-400']};
 
+    :hover {
+      background: ${props => props.theme['gray-500']};
+      transition: 0.2s;
+    }
+
     p {
       font-family: 'Roboto', sans-serif;
       font-size: 0.75rem;
@@ -203,7 +213,7 @@ export const TotalDetails = styled.div`
   }
 `
 
-export const ConfirmOrderButton =styled.button`
+export const ConfirmOrderButton = styled.button`
   max-width: 368px;
   width: 100%;
   padding: 12px 8px;
@@ -216,5 +226,10 @@ export const ConfirmOrderButton =styled.button`
   font-weight: 700;
 
   background: ${props => props.theme['yellow-400']};
-  color: ${props => props.theme['white']}
+  color: ${props => props.theme['white']};
+
+  :hover {
+    background: ${props => props.theme['yellow-800']};
+    transition: 0.2s;
+  }
 `

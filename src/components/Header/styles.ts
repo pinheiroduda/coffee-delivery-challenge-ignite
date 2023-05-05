@@ -44,6 +44,11 @@ export const ShoppingButton = styled.a`
   padding: 8px;
   position: relative;
 
+  :hover {
+    opacity: 0.8;
+    transition: 0.2s;
+  }
+
   span {
     position: absolute;
     top: -8px;

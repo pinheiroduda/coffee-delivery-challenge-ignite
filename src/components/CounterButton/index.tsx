@@ -22,11 +22,11 @@ export function CounterButton({
         onClick={() => onCounterChange(counter - 1)}
         disabled={isDisabled}
       >
-        <Minus size={14} weight="duotone" color={theme['purple-400']} />
+        <Minus size={14} weight="duotone" />
       </button>
       <p>{counter}</p>
       <button onClick={() => onCounterChange(counter + 1)}>
-        <Plus size={14} weight="duotone" color={theme['purple-400']} />
+        <Plus size={14} weight="duotone" />
       </button>
     </CoffeeCounter>
   )

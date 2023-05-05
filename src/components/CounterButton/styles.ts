@@ -14,5 +14,11 @@ export const CoffeeCounter = styled.div`
   button {
     border: none;
     background: none;
+    color: ${props => props.theme['purple-400']};
+
+    >:hover {
+      color: ${props => props.theme['purple-800']};
+      transition: 0.2s;
+    }
   }
 `
