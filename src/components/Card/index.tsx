@@ -20,7 +20,12 @@ export function Card({ image, type, name, description }: CardType) {
   const theme = useTheme()
 
   const handleAddCoffeeToCard = () => {
-    addCoffeeToCart({ id: name, img: image, quantity: counter })
+    addCoffeeToCart({
+      id: Date.now(),
+      name: name,
+      img: image,
+      quantity: counter
+    })
   }
 
   return (
