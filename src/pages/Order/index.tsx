@@ -32,7 +32,7 @@ import {
 
 export function Order() {
   const [counter, setCounter] = useState(1)
-  const { selectedCoffees } = useContext(CartContext)
+  const { cart, removeCoffeeFromCard } = useContext(CartContext)
   const theme = useTheme()
   const navigate = useNavigate()
 
@@ -40,7 +40,11 @@ export function Order() {
     navigate('/confirmed-order')
   }
 
-  console.log(selectedCoffees)
+  const selectedCoffees = cart.map(c => Object.values(c))
+
+  const handleRemoveCoffee = (id: number) => {
+    removeCoffeeFromCard({ id })
+  }
 
   return (
     <OrderContainer>
@@ -115,18 +119,20 @@ export function Order() {
         <ReviewSection>
           <ItemsDetails>
             {selectedCoffees &&
-              selectedCoffees.map(selectedCoffee => {
+              selectedCoffees.map((selectedCoffee, id: number) => {
                 return (
-                  <Item>
-                    <img src={selectedCoffee[1]} alt={selectedCoffee[0]} />
+                  <Item key={id}>
+                    <img src={selectedCoffee[2]} alt={selectedCoffee[1]} />
                     <div>
-                      <p>{selectedCoffee[0]}</p>
+                      <p>{selectedCoffee[1]}</p>
                       <ButtonsBox>
                         <CounterButton
                           counter={counter}
                           onCounterChange={setCounter}
                         />
-                        <button>
+                        <button
+                          onClick={() => handleRemoveCoffee(selectedCoffee[0])}
+                        >
                           <Trash width={16} color={theme['purple-400']} />
                           <p>Remover</p>
                         </button>
