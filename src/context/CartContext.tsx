@@ -5,6 +5,7 @@ interface CartContextProps {
   addCoffeeToCart: ({ id, quantity }: Cart) => void
   coffeeAmountSum: number
   removeCoffeeFromCard: ({ id }: Cart) => void
+  resetCart: () => void
 }
 
 interface CartContextProviderProps {
@@ -58,13 +59,18 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
     setCart(selected)
   }
 
+  const resetCart = () => {
+    setCart([])
+  }
+
   return (
     <CartContext.Provider
       value={{
         cart,
         addCoffeeToCart,
         coffeeAmountSum,
-        removeCoffeeFromCard
+        removeCoffeeFromCard,
+        resetCart
       }}
     >
       {children}
