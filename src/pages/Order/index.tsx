@@ -3,48 +3,24 @@ import {
   CreditCard,
   CurrencyDollar,
   MapPinLine,
-  Money,
-  Trash
+  Money
 } from 'phosphor-react'
-import { useContext, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
 import { useTheme } from 'styled-components'
-import { CounterButton } from '../../components/CounterButton'
-import { CartContext } from '../../context/CartContext'
 
 import {
   Address,
-  ButtonsBox,
-  ConfirmOrderButton,
-  Item,
-  ItemsDetails,
-  ItemsPriceDetails,
   OrderContainer,
   OrderSection,
   PaymentOptions,
   PaymentOptionsButton,
   PaymentSection,
-  ReviewSection,
   SectionTitleBox,
-  TitleBox,
-  TotalDetails
+  TitleBox
 } from './styles'
+import { ReviewOrder } from '../../views/ReviewOrder'
 
 export function Order() {
-  const [counter, setCounter] = useState(1)
-  const { cart, removeCoffeeFromCard } = useContext(CartContext)
   const theme = useTheme()
-  const navigate = useNavigate()
-
-  const handleRedirectFinishedBuying = () => {
-    navigate('/confirmed-order')
-  }
-
-  const selectedCoffees = cart.map(c => Object.values(c))
-
-  const handleRemoveCoffee = (id: number) => {
-    removeCoffeeFromCard({ id })
-  }
 
   return (
     <OrderContainer>
@@ -116,49 +92,7 @@ export function Order() {
       </OrderSection>
       <section>
         <TitleBox>Cafés selecionados</TitleBox>
-        <ReviewSection>
-          <ItemsDetails>
-            {selectedCoffees &&
-              selectedCoffees.map((selectedCoffee, id: number) => {
-                return (
-                  <Item key={id}>
-                    <img src={selectedCoffee[2]} alt={selectedCoffee[1]} />
-                    <div>
-                      <p>{selectedCoffee[1]}</p>
-                      <ButtonsBox>
-                        <CounterButton
-                          counter={counter}
-                          onCounterChange={setCounter}
-                        />
-                        <button
-                          onClick={() => handleRemoveCoffee(selectedCoffee[0])}
-                        >
-                          <Trash width={16} color={theme['purple-400']} />
-                          <p>Remover</p>
-                        </button>
-                      </ButtonsBox>
-                    </div>
-                    <p>R${9.9 * selectedCoffee[2]}</p>
-                  </Item>
-                )
-              })}
-          </ItemsDetails>
-          <ItemsPriceDetails>
-            <p>Total de itens</p>
-            <span>R$</span>
-          </ItemsPriceDetails>
-          <ItemsPriceDetails>
-            <p>Entrega</p>
-            <span>R$</span>
-          </ItemsPriceDetails>
-          <TotalDetails>
-            <p>Total</p>
-            <p>R$</p>
-          </TotalDetails>
-          <ConfirmOrderButton onClick={handleRedirectFinishedBuying}>
-            Confirmar pedido
-          </ConfirmOrderButton>
-        </ReviewSection>
+        <ReviewOrder />
       </section>
     </OrderContainer>
   )
