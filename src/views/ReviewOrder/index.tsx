@@ -48,7 +48,7 @@ export function ReviewOrder() {
                   <p>{selectedCoffee[1]}</p>
                   <ButtonsBox>
                     <CounterButton
-                      counter={counter}
+                      counter={selectedCoffee[3]}
                       onCounterChange={setCounter}
                     />
                     <button

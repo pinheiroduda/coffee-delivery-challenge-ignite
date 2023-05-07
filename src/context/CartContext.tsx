@@ -16,7 +16,7 @@ export interface Cart {
   id: number
   name?: string
   img?: string
-  quantity?: number | undefined
+  quantity?: number
 }
 
 export const CartContext = createContext({} as CartContextProps)
@@ -40,15 +40,25 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
     localStorage.setItem('@coffee-delivery:cart-1.0.0', stateJSON)
   }, [cart])
 
-  const addCoffeeToCart = ({ id, name, img, quantity }: Cart) => {
-    const coffeeAmount: Cart = {
-      id,
-      name,
-      img,
-      quantity
-    }
+  //todo - criar tipo pro coffee
+  const addCoffeeToCart = (coffee: Cart) => {
+    const coffeeExistInCart = cart.find(c => c.name === coffee.name)
 
-    setCart(state => [...state, coffeeAmount])
+    if (coffeeExistInCart) {
+      setCart(state =>
+        state.map(currentCoffee => {
+          if (currentCoffee.name === coffee.name) {
+            return {
+              ...currentCoffee,
+              quantity: (currentCoffee.quantity ?? 0) + 1
+            }
+          }
+          return currentCoffee
+        })
+      )
+    } else {
+      setCart(state => [...state, coffee])
+    }
   }
 
   const removeCoffeeFromCard = ({ id }: Cart) => {
