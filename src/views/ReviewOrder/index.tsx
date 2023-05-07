@@ -17,7 +17,8 @@ import {
 
 export function ReviewOrder() {
   const [counter, setCounter] = useState(1)
-  const { cart, removeCoffeeFromCard, resetCart } = useContext(CartContext)
+  const { cart, coffeeAmountSum, removeCoffeeFromCard, resetCart } =
+    useContext(CartContext)
   const theme = useTheme()
   const navigate = useNavigate()
 
@@ -27,16 +28,18 @@ export function ReviewOrder() {
   }
 
   const selectedCoffees = cart.map(c => Object.values(c))
-  console.log(cart)
 
   const handleRemoveCoffee = (id: number) => {
     removeCoffeeFromCard({ id })
   }
 
+  const totalPrice = (9.9 * coffeeAmountSum).toFixed(2)
+  const deliveryPrice = (3.5 + parseInt(totalPrice)).toFixed(2)
+
   return (
     <ReviewSection>
       <ItemsDetails>
-        {selectedCoffees &&
+        {selectedCoffees.length > 0 ? (
           selectedCoffees.map((selectedCoffee, id: number) => {
             return (
               <Item key={id}>
@@ -59,19 +62,26 @@ export function ReviewOrder() {
                 <p>R${(9.9 * selectedCoffee[3]).toFixed(2)}</p>
               </Item>
             )
-          })}
+          })
+        ) : (
+          <p>O carrinho de compras está vazio</p>
+        )}
       </ItemsDetails>
       <ItemsPriceDetails>
         <p>Total de itens</p>
-        <span>R$</span>
+        {parseInt(totalPrice) > 0 ? (
+          <span>R${totalPrice}</span>
+        ) : (
+          <span>RS0,00</span>
+        )}
       </ItemsPriceDetails>
       <ItemsPriceDetails>
         <p>Entrega</p>
-        <span>R$</span>
+        {parseInt(totalPrice) > 0 ? <span>R$3,50</span> : <span>RS0,00</span>}
       </ItemsPriceDetails>
       <TotalDetails>
         <p>Total</p>
-        <p>R$</p>
+        {parseInt(totalPrice) > 0 ? <p>R${deliveryPrice}</p> : <p>RS0,00</p>}
       </TotalDetails>
       <ConfirmOrderButton onClick={handleRedirectFinishedBuying}>
         Confirmar pedido
